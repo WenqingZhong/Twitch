@@ -1,3 +1,8 @@
 logging:
   level:
     org.apache.coyote.http11.Http11InputBuffer: DEBUG #incoming http requests
+    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http
+
+twitch:
+  client-id: "rurlgemhx7phkb7cnrg59si14k27pn"
+  secret: "kpvn81ympo7ocpp2ttr2xf0x01js4e"
