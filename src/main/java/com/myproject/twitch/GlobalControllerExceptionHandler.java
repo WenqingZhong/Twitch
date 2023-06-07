@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalControllerExceptionHandler {
-
-
     Logger logger = LoggerFactory.getLogger(GlobalControllerExceptionHandler.class);
-
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<TwitchErrorResponse> handleDefaultException(Exception e) {
