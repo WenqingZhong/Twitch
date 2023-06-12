@@ -2,10 +2,22 @@ spring:
   jackson:
     default-property-inclusion: non_null
 
+  datasource:
+    url: jdbc:mysql://database-1.cdcbbdljbe81.us-west-1.rds.amazonaws.com:3306/twitch?createDatabaseIfNotExist=true
+    username: admin
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  sql:
+    init:
+      mode: ${INIT_DB:always}
+      schema-locations: "classpath:database-init.sql"
+
+
 logging:
   level:
-    org.apache.coyote.http11.Http11InputBuffer: DEBUG #incoming http requests
-    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http
+    org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming HTTP requests
+    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http requests
 
 twitch:
   client-id: "rurlgemhx7phkb7cnrg59si14k27pn"
