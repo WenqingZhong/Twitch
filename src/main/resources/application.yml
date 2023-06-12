@@ -18,6 +18,8 @@ logging:
   level:
     org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming HTTP requests
     org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http requests
+    org.springframework.jdbc.core: DEBUG # SQL
+
 
 twitch:
   client-id: "rurlgemhx7phkb7cnrg59si14k27pn"
