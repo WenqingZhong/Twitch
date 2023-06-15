@@ -2,6 +2,7 @@ package com.myproject.twitch;
 
 import com.myproject.twitch.db.UserRepository;
 import com.myproject.twitch.db.entity.UserEntity;
+import com.myproject.twitch.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
@@ -15,17 +16,19 @@ public class DevelopmentTester implements ApplicationRunner {
     private static final Logger logger = LoggerFactory.getLogger(DevelopmentTester.class);
 
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
 
-    public DevelopmentTester(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public DevelopmentTester(UserService userService) {
+        this.userService = userService;
     }
+
+
 
 
     @Override
     public void run(ApplicationArguments args) {
-        UserEntity newUser = new UserEntity(null, "user0", "Foo", "Bar", "password");
-        userRepository.save(newUser);
+        userService.register("default", "123456", "John", "Smith");
     }
 }
+
