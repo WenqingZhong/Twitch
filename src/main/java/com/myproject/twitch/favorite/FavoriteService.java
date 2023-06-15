@@ -15,17 +15,14 @@ import java.util.List;
 @Service
 public class FavoriteService {
 
-
     private final ItemRepository itemRepository;
     private final FavoriteRecordRepository favoriteRecordRepository;
-
 
     public FavoriteService(ItemRepository itemRepository,
                            FavoriteRecordRepository favoriteRecordRepository) {
         this.itemRepository = itemRepository;
         this.favoriteRecordRepository = favoriteRecordRepository;
     }
-
 
     @Transactional
     public void setFavoriteItem(UserEntity user, ItemEntity item) {
