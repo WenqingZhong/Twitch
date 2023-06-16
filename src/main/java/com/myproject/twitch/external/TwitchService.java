@@ -2,6 +2,7 @@ package com.myproject.twitch.external;
 
 import com.myproject.twitch.external.model.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
@@ -31,6 +32,7 @@ public class TwitchService {
     }
 
 
+    @Cacheable("top_games")
     public List<Game> getTopGames() {
         if (token == null) {
             token = twitchIdentityClient.requestAccessToken(twitchClientId, twitchSecret, "client_credentials");
